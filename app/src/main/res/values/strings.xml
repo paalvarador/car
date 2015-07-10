@@ -4,7 +4,7 @@
     <string name="title_activity_settings">Configuración</string>
     <string name="vehicle_info">Información del Vehículo</string>
     <string name="mileage_info">Información Kilometraje</string>
-    <string name="maintenance_new">Nuevo Mantenimiento</string>
+    <string name="maintenance_new">Añadir Mantenimiento</string>
 
     <!-- SETTINGS STRINGS -->
     <string name="str_marca">Marca</string>
@@ -31,6 +31,9 @@
     <string name="str_maintenance_name">Name</string>
     <string name="str_maintenance_date">Fecha</string>
     <string name="str_maintenance_description">Descripción</string>
-    <string name="str_maintenance_miliage">Kilometraje</string>
-    <string name="str_maintenance_miliage_next">Próximo Kilometraje</string>
+    <string name="str_maintenance_miliage">Kilometraje actual</string>
+    <string name="str_maintenance_miliage_next">Kilometraje próximo cambio</string>
+    <string name="title_activity_type_maintenance">TypeMaintenance</string>
+
+    <string name="str_save">Guardar</string>
 </resources>

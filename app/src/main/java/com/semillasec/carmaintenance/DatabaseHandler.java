@@ -64,7 +64,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
      */
 
     // Adding new Maintenance
-    void addMaintenance(Maintenance maintenance)
+    public boolean addMaintenance(Maintenance maintenance)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -77,7 +77,14 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
 
         // Inserting Row
-        //db.insert(TABLE_MAINTENANCE, null, values);
+        long result = db.insert(TABLE_MAINTENANCE, null, values);
         //db.close(); // Close database connection
+
+        if(result == -1){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 }

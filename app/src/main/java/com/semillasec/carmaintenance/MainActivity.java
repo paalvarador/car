@@ -8,11 +8,13 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity {
+    DatabaseHandler dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbHelper = new DatabaseHandler(this);
     }
 
     @Override

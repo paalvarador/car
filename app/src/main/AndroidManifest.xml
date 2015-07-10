@@ -24,6 +24,10 @@
             android:name=".MaintenanceActivity"
             android:label="@string/title_activity_maintenance" >
         </activity>
+        <activity
+            android:name=".TypeMaintenanceActivity"
+            android:label="@string/title_activity_type_maintenance" >
+        </activity>"
     </application>
 
 </manifest>
