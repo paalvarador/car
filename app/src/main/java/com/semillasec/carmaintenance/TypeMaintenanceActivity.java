@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TypeMaintenanceActivity extends ActionBarActivity {
@@ -29,13 +30,13 @@ public class TypeMaintenanceActivity extends ActionBarActivity {
         TypeMaintenance typeMaintenance;
 
         // Agregando los datos
-        typeMaintenance = new TypeMaintenance(getResources().getDrawable(R.drawable.car_oil_maintenance),
+        typeMaintenance = new TypeMaintenance(getResources().getDrawable(R.drawable.cambio_aceite),
                 "Cambio de aceite", "El cambio de aceite se realiza cada 3000 kilometros o 5000 kilómetros");
         items.add(typeMaintenance);
-        typeMaintenance = new TypeMaintenance(getResources().getDrawable(R.drawable.car_oil_maintenance),
+        typeMaintenance = new TypeMaintenance(getResources().getDrawable(R.drawable.cambio_bujias),
                 "Cambio de bujias", "El cambio de bujias generalmente se lo hace al año o 100000 kilómetros");
         items.add(typeMaintenance);
-        typeMaintenance = new TypeMaintenance(getResources().getDrawable(R.drawable.car_oil_maintenance),
+        typeMaintenance = new TypeMaintenance(getResources().getDrawable(R.drawable.cambio_neumaticos),
                 "Cambio de neumáticos", "Generalmente el cambio de neumáticos se lo realiza cada 150000 kilometros");
         items.add(typeMaintenance);
 

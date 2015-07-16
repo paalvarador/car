@@ -1,20 +1,45 @@
 package com.semillasec.carmaintenance;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
     DatabaseHandler dbHelper;
 
+    private List<Maintenance> maintenanceList;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        dbHelper = new DatabaseHandler(this);
+        setContentView(R.layout.activity_card_view);
+
+        // Inicializando datos para la app
+        initializeData();
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.cardList);
+
+        mRecyclerView.setHasFixedSize(true);
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new AdapterMaintenance(maintenanceList);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -41,5 +66,11 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initializeData(){
+        dbHelper = new DatabaseHandler(this);
+
+        maintenanceList = dbHelper.getAllMaintenances();
     }
 }

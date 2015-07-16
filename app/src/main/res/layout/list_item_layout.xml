@@ -8,7 +8,7 @@
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_margin="10dp"
-        android:src="@drawable/car_oil_maintenance"/>
+        android:src="@drawable/cambio_aceite"/>
 
     <TextView
         android:id="@+id/title"

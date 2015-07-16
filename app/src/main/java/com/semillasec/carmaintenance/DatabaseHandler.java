@@ -2,12 +2,15 @@ package com.semillasec.carmaintenance;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.sql.Date;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by root on 26/06/15.
@@ -80,11 +83,39 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         long result = db.insert(TABLE_MAINTENANCE, null, values);
         //db.close(); // Close database connection
 
-        if(result == -1){
-            return true;
-        }else{
+        if(result == -1)
             return false;
+        else
+            return true;
+    }
+
+    // Getting All Maintenance
+    public List<Maintenance> getAllMaintenances()
+    {
+        List<Maintenance> maintenanceList = new ArrayList<>();
+
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_MAINTENANCE;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // Looping through all rows and adding to list
+        if(cursor.moveToFirst()){
+            do{
+                Maintenance maintenance = new Maintenance();
+                maintenance.set_id(Integer.parseInt(cursor.getString(0)));
+                maintenance.set_name(cursor.getString(1));
+                maintenance.set_date(cursor.getString(2));
+                maintenance.setDescription(cursor.getString(3));
+                maintenance.set_miliage(Integer.parseInt(cursor.getString(4)));
+                maintenance.set_miliage_next(Integer.parseInt(cursor.getString(5)));
+
+                // Adding maintenance to List
+                maintenanceList.add(maintenance);
+            }while(cursor.moveToNext());
         }
 
+        return maintenanceList;
     }
 }

@@ -79,11 +79,13 @@ public class MaintenanceActivity extends ActionBarActivity {
                 maintenance.set_miliage(Integer.valueOf(etKm.getText().toString()));
                 maintenance.set_miliage_next(Integer.valueOf(etSigKm.getText().toString()));
 
-                if(dbHandler.addMaintenance(maintenance)){
+                if(dbHandler.addMaintenance(maintenance) == true){
                     Toast.makeText(MaintenanceActivity.this, "Datos registrados correctamente", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(MaintenanceActivity.this, "No se registraron los datos", Toast.LENGTH_LONG).show();
                 }
+
+                finish();
             }
         });
 
